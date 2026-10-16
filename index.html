@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Poorvi Jewels | Artificial and Fashion Jewellery</title>
+<meta name="description" content="Poorvi Jewels: fashion and artificial jewellery for everyday elegance and festive occasions. Earrings, necklaces, bangles, rings, oxidised and temple jewellery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burgundy:#6C2638;--gold:#D6B36A;--ivory:#FAF5ED;--white:#FFFFFF;
+  --charcoal:#292522;--taupe:#746B65;--border:#E8DED2;
+  --head:'Playfair Display',Georgia,serif;--body:'Poppins',system-ui,sans-serif;
+  --r:12px;--shadow:0 6px 20px rgba(41,37,34,.08);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{font:400 16px/1.7 var(--body);background:var(--ivory);color:var(--charcoal)}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--burgundy);outline-offset:2px}
+h1,h2,h3{font-family:var(--head);color:var(--burgundy);line-height:1.2}
+h1{font-size:56px;font-weight:700}
+h2{font-size:36px;font-weight:700}
+.wrap{width:min(1200px,100% - 2rem);margin-inline:auto}
+section{padding-block:64px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.6rem;border-radius:999px;border:1.5px solid var(--burgundy);background:var(--burgundy);color:#fff;font:600 15px var(--body);cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn:hover{background:#561d2c}
+.btn.alt{background:var(--ivory);color:var(--burgundy)}
+.btn.alt:hover{background:var(--burgundy);color:#fff}
+.btn.sm{min-height:42px;width:100%;font-size:14px}
+.top{background:var(--burgundy);color:#fff;text-align:center;font-size:13px;padding:7px 1rem;border-bottom:2px solid var(--gold)}
+header{position:sticky;top:0;z-index:30;background:var(--white);border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;gap:1rem;min-height:72px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:700 30px var(--head);color:var(--burgundy);margin-right:auto}
+.logo svg{width:26px;height:34px}
+.search input{width:250px;height:42px;padding:0 1rem;border-radius:999px;border:1px solid var(--border);background:var(--ivory)}
+.icon{position:relative;width:44px;height:44px;border:1px solid var(--border);border-radius:50%;background:var(--white);cursor:pointer;display:grid;place-items:center;color:var(--burgundy)}
+.icon:hover{border-color:var(--gold)}
+.icon b{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--burgundy);color:#fff;font-size:12px;display:grid;place-items:center;padding:0 4px}
+.burger{display:none}
+nav.main{border-top:1px solid var(--border)}
+nav.main ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem 1.2rem}
+nav.main a{display:block;padding:.55rem .2rem;font:500 14px var(--body);text-decoration:none;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a.on{color:var(--burgundy);border-color:var(--gold)}
+.hero{background:var(--white);border-bottom:1px solid var(--border)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:56px}
+.hero p{margin:1rem 0 1.6rem;color:var(--taupe);max-width:30rem}
+.hero .ph{max-width:440px;width:100%;margin-inline:auto}
+.gline{width:56px;height:2px;background:var(--gold);margin-bottom:1.2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.ph{position:relative;aspect-ratio:4/5;background:var(--ivory);border:1px solid var(--gold);border-radius:var(--r);overflow:hidden}
+.ph img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
+.ph .note{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:1rem;color:var(--taupe);font-size:13px}
+.ph .note b{display:block;font:600 16px var(--head);color:var(--burgundy)}
+.head{text-align:center;margin-bottom:32px}
+.head p{color:var(--taupe);margin-top:.4rem}
+.head:after{content:"";display:block;width:56px;height:2px;background:var(--gold);margin:14px auto 0}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cat{border:1px solid var(--border);background:var(--white);border-radius:var(--r);overflow:hidden;cursor:pointer;text-align:center;padding:0;transition:box-shadow .2s,border-color .2s}
+.cat:hover{box-shadow:var(--shadow);border-color:var(--gold)}
+.cat .ph{aspect-ratio:1;border:0;border-radius:0}
+.cat span{display:block;padding:.8rem .5rem;font:500 15px var(--body)}
+.coll{padding-block:40px}
+.collhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px;gap:1rem}
+.collhead h3{font-size:28px}
+.link{background:none;border:0;color:var(--burgundy);font:500 14px var(--body);text-decoration:underline;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s}
+.card:hover{box-shadow:var(--shadow);border-color:var(--gold)}
+.card .ph{border:0;border-radius:0;cursor:pointer}
+.tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--white);border:1px solid var(--gold);color:var(--burgundy);font:500 12px var(--body);padding:2px 10px;border-radius:999px}
+.card .info{padding:14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card small{font-size:13px;color:var(--taupe)}
+.card h4{font:500 16px/1.4 var(--body);cursor:pointer}
+.price{font:600 18px var(--body);margin-top:auto;padding-top:4px}
+.price.tba{font:400 14px var(--body);color:var(--taupe)}
+.price s{font:400 14px var(--body);color:var(--taupe);margin-left:6px}
+.card .btn{margin-top:8px}
+#shop{background:var(--white);border-block:1px solid var(--border)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:20px;flex-wrap:wrap;color:var(--taupe);font-size:14px}
+.empty{grid-column:1/-1;text-align:center;padding:40px;background:var(--ivory);border-radius:var(--r)}
+.story{max-width:760px;margin-inline:auto;text-align:center}
+.story p{color:var(--taupe)}
+.pn{display:inline-block;margin-top:1rem;padding:.4rem 1rem;border:1px dashed var(--gold);border-radius:8px;font-size:13px;color:var(--taupe)}
+.insta{background:var(--white);border-block:1px solid var(--border);text-align:center}
+.insta p{color:var(--taupe);max-width:34rem;margin:0 auto 1.4rem}
+#contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+#contact ul{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.4rem}
+#contact a{color:var(--burgundy)}
+form{display:grid;gap:14px}
+label{display:grid;gap:4px;font:500 14px var(--body)}
+input,textarea{padding:.7rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--white)}
+textarea{min-height:110px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+.msg{min-height:1.5em;font-size:14px;color:var(--burgundy);font-weight:500}
+footer{background:var(--burgundy);color:#F3E9EC;padding:48px 0 90px;border-top:3px solid var(--gold)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h3{color:#fff;font-size:18px;margin-bottom:.6rem}
+footer ul{list-style:none;padding:0;display:grid;gap:.3rem;font-size:14px}
+footer a,footer .link{color:#F3E9EC;font-size:14px}
+footer .legal{grid-column:1/-1;border-top:1px solid rgba(214,179,106,.4);padding-top:16px;font-size:13px}
+.wa{position:fixed;right:16px;bottom:16px;z-index:35;display:flex;align-items:center;gap:8px;min-height:50px;padding:0 20px;border-radius:999px;background:#1F7A4D;color:#fff;font:600 14px var(--body);text-decoration:none;box-shadow:var(--shadow)}
+.veil{position:fixed;inset:0;z-index:40;background:rgba(41,37,34,.5);opacity:0;pointer-events:none;transition:opacity .25s}
+.veil.on{opacity:1;pointer-events:auto}
+.drawer,.modal{position:fixed;z-index:50;background:var(--white);visibility:hidden}
+.drawer{top:0;right:0;height:100%;width:min(420px,100%);transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.drawer.on{transform:none;visibility:visible}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border)}
+.dh h2{font-size:24px}
+.x{background:none;border:0;font-size:30px;cursor:pointer;line-height:1;color:var(--charcoal)}
+.items{flex:1;overflow:auto;padding:16px 20px;display:grid;align-content:start;gap:14px}
+.line{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.line h4{font:500 15px var(--body)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;margin-top:6px}
+.qty button{width:34px;height:34px;border:0;background:none;cursor:pointer;font-size:18px}
+.qty span{min-width:24px;text-align:center}
+.sum{padding:16px 20px;border-top:1px solid var(--border);display:grid;gap:8px}
+.tot{display:flex;justify-content:space-between;font-weight:600}
+.sum small{color:var(--taupe);font-size:13px}
+.modal{top:50%;left:50%;width:min(780px,94vw);max-height:90vh;overflow:auto;transform:translate(-50%,-48%);opacity:0;transition:opacity .2s,transform .2s;border-radius:var(--r);padding:24px}
+.modal.on{visibility:visible;opacity:1;transform:translate(-50%,-50%)}
+.modal .x{position:absolute;top:8px;right:14px}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.pd h2{font-size:28px}
+.toast{position:fixed;left:50%;bottom:84px;translate:-50% 0;z-index:60;background:var(--charcoal);color:#fff;padding:10px 20px;border-radius:999px;font-size:14px;max-width:92vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.on{opacity:1}
+@media (max-width:1000px){.grid,.cats{grid-template-columns:repeat(3,1fr)}.search input{width:180px}}
+@media (max-width:760px){
+  h1{font-size:36px}h2{font-size:28px}.logo{font-size:25px}
+  section{padding-block:44px}
+  .burger{display:grid}
+  .search{order:5;flex-basis:100%}.search input{width:100%}
+  .bar{flex-wrap:wrap;padding-block:8px}
+  nav.main{display:none}nav.main.on{display:block}
+  nav.main ul{flex-direction:column;align-items:stretch;padding:.5rem 0}
+  nav.main a{padding:.7rem .2rem;border-bottom:1px solid var(--border)}
+  .hero .wrap,#contact .wrap,footer .wrap,.pd{grid-template-columns:1fr;gap:28px}
+  .hero .wrap{padding-block:32px}
+  .grid,.cats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card .info{padding:10px}
+  html{scroll-padding-top:130px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="top" id="announce"></div>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="Poorvi Jewels home">
+      <svg viewBox="0 0 26 34" fill="none" stroke="#D6B36A" stroke-width="1.6" aria-hidden="true"><circle cx="13" cy="4" r="2.5"/><path d="M13 7v4M13 11l9 8-9 12-9-12z"/><path d="M4 19h18M13 11v20" stroke-width="1"/></svg>
+      <span>Poorvi Jewels</span>
+    </a>
+    <label class="search"><span class="hp">Search jewellery</span><input id="q" type="search" placeholder="Search jewellery" autocomplete="off"></label>
+    <button class="icon" id="openCart" aria-label="Open cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 11H6.2zM9 8V6a3 3 0 0 1 6 0v2"/></svg><b id="count">0</b></button>
+    <button class="icon burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="main" id="nav" aria-label="Main"><div class="wrap"><ul id="navlist"></ul></div></nav>
+</header>
+
+<main id="home">
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <div class="gline"></div>
+      <h1>Jewellery That Makes Every Moment Special</h1>
+      <p>Discover beautiful artificial jewellery for everyday elegance, festive celebrations and unforgettable occasions.</p>
+      <div class="btns"><button class="btn" data-go="tag:new">Shop New Arrivals</button><button class="btn alt" data-go="collections">Explore Collections</button></div>
+    </div>
+    <div class="ph">
+      <img src="images/hero.jpg" alt="Gold temple jhumka earrings with peacock and Lakshmi motifs on purple velvet" width="800" height="1000" onerror="this.remove()">
+      <div class="note"><div><b>Photograph loading</b>images/hero.jpg</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="categories"><div class="wrap">
+  <div class="head"><h2>Shop by Category</h2></div>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<div id="collections"></div>
+
+<section id="shop"><div class="wrap">
+  <div class="head"><h2 id="shopTitle">Shop All</h2></div>
+  <div class="tools"><span id="info" aria-live="polite"></span><button class="link" id="clearF">Clear filters</button></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="story"><div class="wrap story">
+  <div class="head"><h2>Our Story</h2></div>
+  <p>Poorvi Jewels is a fashion jewellery brand offering artificial jewellery for everyday wear and special occasions.</p>
+  <span class="pn">Placeholder: add your brand story here</span>
+</div></section>
+
+<section class="insta"><div class="wrap">
+  <div class="head"><h2>Follow Our Style</h2></div>
+  <p>See new designs and styling ideas on our official Instagram profile.</p>
+  <a class="btn" id="igBtn" target="_blank" rel="noopener">Follow @Poorvijewels24</a>
+  <p style="margin-top:1rem;font-size:13px"><span class="pn">Placeholder: Instagram photos can be added here once you have authorised images</span></p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div>
+    <h2>Contact Us</h2>
+    <ul id="clist"></ul>
+    <a class="btn" id="waBtn">Chat on WhatsApp</a>
+  </div>
+  <form name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" id="cform">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hp"><label>Leave empty <input name="bot-field"></label></p>
+    <label>Your name <input name="name" required autocomplete="name"></label>
+    <label>Email <input name="email" type="email" required autocomplete="email"></label>
+    <label>Message <textarea name="message" required></textarea></label>
+    <button class="btn" type="submit">Send Message</button>
+    <p class="msg" id="fmsg" role="status"></p>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><h3>Poorvi Jewels</h3><p style="font-size:14px">Artificial and fashion jewellery.</p><p style="font-size:14px;margin-top:.5rem"><a id="fIg" target="_blank" rel="noopener">Instagram @Poorvijewels24</a></p></div>
+  <div><h3>Help</h3><ul>
+    <li><button class="link" data-pol="Customer Support">Customer Support</button></li>
+    <li><button class="link" data-pol="Shipping Information">Shipping Information</button></li>
+    <li><button class="link" data-pol="Returns Policy">Returns Policy</button></li></ul></div>
+  <div><h3>Legal</h3><ul>
+    <li><button class="link" data-pol="Privacy Policy">Privacy Policy</button></li>
+    <li><button class="link" data-pol="Terms and Conditions">Terms and Conditions</button></li>
+    <li><a href="#contact">Contact</a></li></ul></div>
+  <div class="legal">© <span id="yr"></span> Poorvi Jewels. Prices and policies shown are placeholders until confirmed.</div>
+</div></footer>
+
+<a class="wa" id="waFloat" aria-label="Chat on WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.1.5.1.6-.1l.9-1.100c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.400z"/></svg>WhatsApp</a>
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true">
+  <div class="dh"><h2>Your Cart</h2><button class="x" id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="sum">
+    <div class="tot"><span>Total</span><span id="total"></span></div>
+    <small>Online payment is not set up yet. Sending your order opens WhatsApp, where we confirm prices, delivery and payment.</small>
+    <button class="btn" id="checkout">Send Order on WhatsApp</button>
+    <button class="link" id="clear">Clear cart</button>
+  </div>
+</aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Details"><button class="x" id="closeModal" aria-label="Close">×</button><div id="mbody"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+const CONFIG={
+  brand:"Poorvi Jewels",
+  announce:"Discover Your Everyday Jewellery Style",
+  currency:"₹",
+  whatsapp:"917022544990",   // assumes India (+91). Digits only. Change if needed.
+  email:"e.thanuja.7787@gmail.com",
+  instagram:"https://www.instagram.com/Poorvijewels24/"
+};
+/* PLACEHOLDER PRODUCTS. Set price (number), old (optional original price) and img ("images/products/name.jpg"). price:null shows "Price to be added". */
+const CATS=[
+ {id:"earrings",name:"Earrings",nav:"Earrings"},{id:"necklaces",name:"Necklaces",nav:"Necklaces"},
+ {id:"bangles",name:"Bangles & Bracelets",nav:"Bangles"},{id:"rings",name:"Rings",nav:"Rings"},
+ {id:"oxidised",name:"Oxidised Jewellery",nav:"Oxidised Jewellery"},{id:"temple",name:"Temple Jewellery",nav:"Temple Jewellery"},
+ {id:"bridal",name:"Bridal & Festive Jewellery",nav:"Bridal Jewellery"}
+];
+const COLLS=[{tag:"new",name:"New Arrivals"},{tag:"best",name:"Best Sellers"},{tag:"everyday",name:"Everyday Elegance"},{tag:"festive",name:"Festive & Wedding Collection"}];
+const IMG="images/products/";
+const P=(id,name,cat,tags,file,o={})=>({id,name,cat,tags,price:null,old:null,img:IMG+file+".jpg",also:o.also||[],fit:o.fit||"center"});
+/* Names below only describe the photo. Set price (number) and old (optional) per product. Tag "best" is left unused until you confirm real best sellers. */
+const PRODUCTS=[
+ P(1,"Antique gold filigree bangles","bangles",["new","festive"],"antique-filigree-bangles"),
+ P(2,"Carved gold bangles with coloured stones","bangles",["new","festive"],"carved-gold-bangles"),
+ P(3,"Floral bangles with green and pink stones","bangles",["new","everyday"],"floral-bangles"),
+ P(4,"Stone-studded kada bracelets","bangles",["new","festive"],"stone-kada-bracelets"),
+ P(5,"Pearl and stone jhumka earrings","earrings",["new","festive"],"pearl-jhumka-earrings"),
+ P(6,"Lakshmi peacock temple jhumkas","temple",["new","festive"],"lakshmi-temple-jhumkas",{also:["earrings"]}),
+ P(7,"Elephant motif temple necklace set","temple",["new","festive"],"elephant-temple-necklace-set",{also:["necklaces"]}),
+ P(8,"Green bead temple haram with jhumkas","temple",["new","festive"],"green-bead-temple-haram",{also:["necklaces"]}),
+ P(9,"Pearl choker with green beads and earrings","bridal",["new","festive"],"pearl-choker-green-beads",{also:["necklaces"],fit:"contain"}),
+ P(10,"Pearl choker with round pendant and earrings","bridal",["new","festive"],"pearl-choker-round-pendant",{also:["necklaces"],fit:"contain"}),
+ P(11,"Necklace and earrings in gift box","bridal",["new","festive"],"boxed-necklace-set",{also:["necklaces"]}),
+ P(12,"Floral pink and green stone necklace","necklaces",["new","festive"],"floral-stone-necklace"),
+ P(13,"White stone flower necklace set","necklaces",["new","everyday"],"white-stone-flower-necklace-set"),
+ P(14,"White stone star necklace set","necklaces",["new","everyday"],"white-stone-star-necklace-set"),
+ P(15,"Coloured stone pendant necklace","necklaces",["new","everyday"],"coloured-stone-pendant-necklace"),
+ P(16,"Peacock motif necklace and earring set","necklaces",["new","festive"],"peacock-necklace-set"),
+ P(17,"Pearl cluster peacock necklace set","necklaces",["new","festive"],"pearl-peacock-necklace-set"),
+ P(18,"Layered stone necklaces with studs","necklaces",["new","everyday"],"layered-stone-necklaces"),
+ P(19,"Necklace and earring sets, three designs","necklaces",["new","everyday"],"three-necklace-sets")
+];
+const NAV=[["Home","home"],["Shop All","all"],["New Arrivals","tag:new"],["Best Sellers","tag:best"],
+ ...CATS.filter(c=>["earrings","necklaces","bangles","rings","oxidised","temple","bridal"].includes(c.id)).map(c=>[c.nav,"cat:"+c.id]),["Contact","contact"]];
+
+/* ===== Helpers ===== */
+const $=id=>document.getElementById(id);
+const money=n=>CONFIG.currency+n.toLocaleString("en-IN");
+const byId=id=>PRODUCTS.find(p=>p.id===+id);
+const catName=id=>CATS.find(c=>c.id===id).name;
+const waOk=()=>/^\d{10,15}$/.test(CONFIG.whatsapp);
+const wa=t=>`https://wa.me/${CONFIG.whatsapp}${t?"?text="+encodeURIComponent(t):""}`;
+const F={cat:null,tag:null,q:""};
+let cart={};try{cart=JSON.parse(localStorage.getItem("poorvi-cart")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("poorvi-cart",JSON.stringify(cart))}catch(e){}};
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2600)}
+const ph=(label,img,alt,fit)=>`${img?`<img src="${img}" alt="${alt}" loading="lazy" width="400" height="500" ${fit==="contain"?'style="object-fit:contain;background:#fff"':""} onerror="this.remove()">`:""}<div class="note"><div><b>${label}</b>Photo placeholder</div></div>`;
+const priceHTML=p=>p.price===null?`<div class="price tba">Price to be added</div>`:`<div class="price">${money(p.price)}${p.old?`<s>${money(p.old)}</s>`:""}</div>`;
+function card(p){return `<article class="card"><div class="ph" data-view="${p.id}">${p.img?"":`<span class="tag">Sample</span>`}${ph("Product photo",p.img,p.name,p.fit)}</div>
+<div class="info"><small>${catName(p.cat)}</small><h4 data-view="${p.id}">${p.name}</h4>${priceHTML(p)}<button class="btn sm" data-add="${p.id}">Add to Cart</button></div></article>`}
+
+/* ===== Static setup ===== */
+document.title="Poorvi Jewels | Artificial and Fashion Jewellery";
+$("announce").textContent=CONFIG.announce;$("yr").textContent=new Date().getFullYear();
+$("igBtn").href=$("fIg").href=CONFIG.instagram;
+$("navlist").innerHTML=NAV.map(([n,k])=>`<li><a href="#" data-go="${k}">${n}</a></li>`).join("");
+const inCat=(p,id)=>p.cat===id||p.also.includes(id);
+$("cats").innerHTML=CATS.map(c=>{const f=PRODUCTS.find(p=>p.cat===c.id);return `<button class="cat" data-go="cat:${c.id}"><div class="ph">${ph(c.name,f?f.img:"",f?c.name+" jewellery from Poorvi Jewels":"",f?f.fit:"")}</div><span>${c.name}</span></button>`}).join("");
+$("collections").innerHTML=COLLS.filter(c=>PRODUCTS.some(p=>p.tags.includes(c.tag))).map((c,i)=>`<section class="coll" style="${i%2?"background:var(--white);border-block:1px solid var(--border)":""}"><div class="wrap"><div class="collhead"><h3 style="font-family:var(--head)">${c.name}</h3><button class="link" data-go="tag:${c.tag}">View all</button></div><div class="grid">${PRODUCTS.filter(p=>p.tags.includes(c.tag)).slice(0,4).map(card).join("")}</div></div></section>`).join("");
+$("clist").innerHTML=`<li>WhatsApp: +${CONFIG.whatsapp.replace(/^(\d{2})(\d{5})(\d{5})$/,"$1 $2 $3")}</li><li>Email: <a href="mailto:${CONFIG.email}">${CONFIG.email}</a></li><li>Instagram: <a href="${CONFIG.instagram}" target="_blank" rel="noopener">@Poorvijewels24</a></li><li>Address: [placeholder: add business address if you want to show one]</li>`;
+["waBtn","waFloat"].forEach(i=>{const a=$(i);a.href=waOk()?wa("Hi Poorvi Jewels!"):"#";if(waOk()){a.target="_blank";a.rel="noopener"}else a.onclick=e=>{e.preventDefault();toast("WhatsApp number not set yet")}});
+
+/* ===== Navigation and filters ===== */
+function go(k){
+  document.querySelectorAll("#navlist a").forEach(a=>a.classList.toggle("on",a.dataset.go===k));
+  $("nav").classList.remove("on");$("burger").setAttribute("aria-expanded","false");
+  if(k==="home"){window.scrollTo({top:0});return}
+  if(k==="contact"){$("contact").scrollIntoView();return}
+  if(k==="collections"){$("collections").scrollIntoView();return}
+  F.cat=k.startsWith("cat:")?k.slice(4):null;F.tag=k.startsWith("tag:")?k.slice(4):null;
+  render();$("shop").scrollIntoView();
+}
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");if(g){e.preventDefault();go(g.dataset.go);return}
+  const a=e.target.closest("[data-add]");if(a){add(a.dataset.add);return}
+  const v=e.target.closest("[data-view]");if(v){view(v.dataset.view);return}
+  const pol=e.target.closest("[data-pol]");if(pol){modal(`<h2>${pol.dataset.pol}</h2><p style="margin-top:1rem;color:var(--taupe)">Placeholder: add your real ${pol.dataset.pol.toLowerCase()} here. Nothing has been confirmed yet.</p>`)}
+});
+$("q").addEventListener("input",e=>{F.q=e.target.value;F.cat=F.tag=null;document.querySelectorAll("#navlist a").forEach(x=>x.classList.remove("on"));render();if(F.q)$("shop").scrollIntoView()});
+$("clearF").onclick=()=>{F.cat=F.tag=null;F.q="";$("q").value="";go("all")};
+$("burger").onclick=()=>{const o=$("nav").classList.toggle("on");$("burger").setAttribute("aria-expanded",o)};
+
+function render(){
+  const q=F.q.trim().toLowerCase();
+  const list=PRODUCTS.filter(p=>(!F.cat||inCat(p,F.cat))&&(!F.tag||p.tags.includes(F.tag))&&(!q||(p.name+" "+catName(p.cat)).toLowerCase().includes(q)));
+  $("shopTitle").textContent=F.cat?catName(F.cat):F.tag?COLLS.find(c=>c.tag===F.tag).name:"Shop All";
+  $("info").textContent=`Showing ${list.length} of ${PRODUCTS.length} products`;
+  $("grid").innerHTML=list.length?list.map(card).join(""):`<div class="empty"><h3>No products to show here yet</h3><p style="color:var(--taupe)">Try another word or clear the filters.</p></div>`;
+}
+
+/* ===== Product detail and policy modal ===== */
+function modal(html){$("mbody").innerHTML=html;$("modal").classList.add("on");$("veil").classList.add("on");$("closeModal").focus()}
+function view(id){const p=byId(id);modal(`<div class="pd"><div class="ph">${ph("Product photo",p.img,p.name,p.fit)}</div><div><small style="color:var(--taupe)">${catName(p.cat)}</small><h2>${p.name}</h2>${priceHTML(p)}<p style="color:var(--taupe);margin:12px 0">Placeholder: add the product description, materials and size details here.</p><button class="btn" data-add="${p.id}">Add to Cart</button></div></div>`)}
+function closeAll(){["modal","drawer"].forEach(i=>$(i).classList.remove("on"));$("veil").classList.remove("on");$("drawer").setAttribute("aria-hidden","true")}
+$("closeModal").onclick=closeAll;$("veil").onclick=closeAll;$("closeCart").onclick=closeAll;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll()});
+
+/* ===== Cart ===== */
+function add(id){cart[id]=Math.min((cart[id]||0)+1,10);save();drawCart();toast(byId(id).name+" added to cart")}
+function drawCart(){
+  Object.keys(cart).forEach(id=>{if(!byId(id))delete cart[id]});
+  const ids=Object.keys(cart);let sum=0,miss=false;
+  ids.forEach(id=>{const p=byId(id);if(p.price===null)miss=true;else sum+=p.price*cart[id]});
+  $("count").textContent=ids.reduce((s,id)=>s+cart[id],0);
+  $("items").innerHTML=ids.length?ids.map(id=>{const p=byId(id);return `<div class="line"><div><h4>${p.name}</h4><small style="color:var(--taupe)">${p.price===null?"Price to be added":money(p.price)}</small><div class="qty"><button data-q="${id}" data-d="-1" aria-label="Decrease quantity">−</button><span>${cart[id]}</span><button data-q="${id}" data-d="1" aria-label="Increase quantity">+</button></div></div><button class="link" data-rm="${id}">Remove</button></div>`}).join(""):`<div style="text-align:center;padding:2rem 0"><h3>Your cart is empty</h3><p style="color:var(--taupe);margin:.5rem 0 1rem">Add a piece you love to get started.</p><button class="btn" data-go="all">Browse Jewellery</button></div>`;
+  $("total").textContent=!ids.length?"-":miss?(sum?money(sum)+" + unpriced items":"To be confirmed"):money(sum);
+  $("checkout").disabled=!ids.length;$("checkout").style.opacity=ids.length?1:.5;
+}
+$("items").addEventListener("click",e=>{
+  const q=e.target.closest("[data-q]"),r=e.target.closest("[data-rm]");
+  if(q){const n=(cart[q.dataset.q]||0)+ +q.dataset.d;if(n<=0)delete cart[q.dataset.q];else cart[q.dataset.q]=Math.min(n,10)}
+  if(r)delete cart[r.dataset.rm];
+  if(q||r){save();drawCart()}
+});
+$("clear").onclick=()=>{cart={};save();drawCart()};
+$("checkout").onclick=()=>{
+  if(!Object.keys(cart).length)return;
+  if(!waOk()){toast("WhatsApp number not set yet");return}
+  window.open(wa("Hi Poorvi Jewels, I'd like to order:\n"+Object.entries(cart).map(([id,n])=>`${n} x ${byId(id).name}`).join("\n")),"_blank","noopener");
+};
+$("openCart").onclick=()=>{$("drawer").classList.add("on");$("veil").classList.add("on");$("drawer").setAttribute("aria-hidden","false");$("closeCart").focus()};
+
+/* ===== Contact form (Netlify Forms) ===== */
+$("cform").addEventListener("submit",async e=>{
+  e.preventDefault();const f=e.target,m=$("fmsg");m.textContent="Sending...";
+  try{const r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()});
+    if(!r.ok)throw 0;m.textContent="Thank you. We will get back to you soon.";f.reset()}
+  catch(err){m.textContent="Could not send. Please email "+CONFIG.email+" or message us on WhatsApp."}
+});
+render();drawCart();
+</script>
+</body>
+</html>
